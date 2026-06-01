@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Write Her</title>
+    <link rel="stylesheet" href="write.css">
+</head>
+<body data-theme="blue">
+
+    <button id="floating-focus-btn" class="floating-btn"> Focus: OFF</button>
+
+    <div class="app-layout">
+        <aside id="sidebar" class="sidebar fade-ui">
+            <div class="sidebar-section">
+                <div class="sidebar-header">
+                    <h2>Navigation</h2>
+                </div>
+                <div class="nav-buttons">
+                    <button id="home-btn" class="nav-btn"> Dashboard</button>
+                    <button id="new-doc-btn" class="nav-btn"> New Story</button>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <div class="sidebar-header">
+                    <h2>World Building</h2>
+                    <button id="open-tree-btn" class="icon-btn">📌 Open Board</button>
+                </div>
+            </div>
+        </aside>
+
+        <div class="main-content">
+            <header id="controls" class="controls fade-ui">
+                <div class="control-group" style="display: flex; gap: 10px; align-items: center;">
+                    <button id="toggle-sidebar-btn" class="icon-btn" title="Toggle Sidebar">☰</button>
+                    
+                    <button id="main-draw-btn" class="icon-btn">🖍️ Draw</button>
+                    <button id="eraser-btn" class="icon-btn hidden">🧽 Erase</button>
+                    <button id="undo-btn" class="icon-btn hidden">↩️ Undo</button>
+                    <button id="redo-btn" class="icon-btn hidden">↪️ Redo</button>
+                    <button id="clear-draw-btn" class="icon-btn hidden">🗑️ Clear</button>
+
+                    <select id="theme-select">
+                        <option value="light">Light</option>
+                        <option value="dark">Dark</option>
+                        <option value="blue" selected>Soft Blue</option>
+                        <option value="brown">Aesthetic Brown</option>
+                    </select>
+                </div>
+                
+                <div class="youtube-wrapper">
+                    <div class="youtube-search-bar">
+                        <input type="text" id="yt-search" placeholder="Search music...">
+                        <button id="yt-search-btn">🔍</button>
+                    </div>
+                    <div id="yt-results" class="yt-results hidden"></div>
+                    <div id="yt-iframe-container"></div>
+                </div>
+                
+                <div class="status"><span id="word-count"></span></div>
+            </header>
+
+            <main id="main-content-area" class="content-area">
+                
+                <canvas id="main-draw-layer"></canvas>
+
+                <div id="dashboard-view" class="dashboard">
+                    <h1 class="dashboard-title">Your Library</h1>
+                    <div id="doc-grid" class="card-grid"></div>
+                </div>
+
+                <div id="editor-view" class="editor-container hidden">
+                    <div class="editor-wrapper">
+                        <input type="text" id="doc-title-input" class="doc-title-input" placeholder="Untitled Story">
+                        <div id="editor" class="editor" contenteditable="true" data-placeholder="Start writing... Just copy & paste images here!"></div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <div id="tree-modal" class="tree-modal hidden">
+        <div class="tree-header">
+            <h2>Character Board</h2>
+            <div class="board-controls">
+                <button id="add-node-btn" class="icon-btn">+ Add Note</button>
+                <button id="link-nodes-btn" class="icon-btn">🔗 Link Nodes</button>
+                <button id="close-tree-btn" class="icon-btn">❌ Close</button>
+            </div>
+        </div>
+        <div id="board-canvas" class="board-canvas">
+            <svg id="svg-lines" class="svg-lines"></svg>
+            <div id="node-container"></div>
+        </div>
+    </div>
+
+    <script type="module" src="js/app.js"></script>
+</body>
+</html>
