@@ -343,7 +343,7 @@ const setupEvents = () => {
 
     els.focusBtn.addEventListener('click', () => {
         state.isFocusMode = !state.isFocusMode;
-        els.focusBtn.textContent = `🎯 Focus: ${state.isFocusMode ? 'ON' : 'OFF'}`;
+        els.focusBtn.textContent = `Focus: ${state.isFocusMode ? 'ON' : 'OFF'}`;
         els.focusBtn.classList.toggle('on', state.isFocusMode);
     });
 
